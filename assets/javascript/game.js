@@ -18,7 +18,6 @@ document.onkeyup = function (event) {
         if (!yourGuessesSoFar.includes(userGuess)) {
             yourGuessesSoFar.push(userGuess)
             // this was an attempt at showing the already chosen letters on the screen
-            return yourGuessesSoFar;
             if (userGuess === computerGuess) {
                 console.log("you win!!!")
                 alert("You're a winner!")
@@ -43,7 +42,7 @@ document.onkeyup = function (event) {
         alert("not letter")
     }
 }
-// Below is the code for the randome computer guess
+// Below is the code for the random computer guess
 randomGuess()
 function randomGuess() {
 
