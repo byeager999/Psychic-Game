@@ -1,26 +1,60 @@
 
-var letters = ["a","b","c","d","e","f","g","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+// variables to house the items needed for the below functions
+var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var wins = 0;
 var losses = 0;
 var guessesLeft = 0;
 var yourGuessesSoFar = 0;
+var computerGuess = ""
 
+// below is the code for the user guess 
+document.onkeyup = function (event) {
 
-function randomGuess(){
-    var computerGuess = letters[Math.floor(Math.random()*letters.length)];
-
-    document.onkeyup = function() {
-        var userGuess = String.fromCharCode(event.keyCode).
-            toLowerCase();
-            
-            for (i=0; i < 10; i++){
-                if (userGuess == computerGuess){
-                    break;
-                } 
-            }
-        console.log(userGuess);
-    }
+    var userGuess = event.key
+    userGuess.toLowerCase();
+    console.log(userGuess);
     
+    if (letters.includes(userGuess)) {
+        if (!yourGuessesSoFar.includes(userGuess)) {
+            yourGuessesSoFar.push(userGuess)
+            if (userGuess === computerGuess) {
+                console.log("you win!!!")
+                alert("You're a winner!")
+                wins++
+                randomGuess()
+            } else {
+                console.log("wrong answer")
+                guessesLeft--
+                if (guessesLeft === 0) {
+                    console.log("you lose!!")
+                    alert("You're a loser!")
+                    losses++
+                    randomGuess()
+                }
+            }
+        } else {
+            alert("already guessed this letter")
+
+        }
+    } else {
+        alert("not letter")
+    }
+}
+// Below is the code for the randome computer guess
+randomGuess()
+function randomGuess() {
+
+    guessesLeft = 8
+    yourGuessesSoFar = []
+    computerGuess = letters[Math.floor(Math.random() * letters.length)];
+    console.log(computerGuess);
+    document.getElementById("winz").innerHTML = wins
+    document.getElementById("losez").innerHTML = losses
+    document.getElementById("guesz").innerHTML = guessesLeft
+    document.getElementById("soFar").innerHTML = yourGuessesSoFar
+
+
+
 }
 
 
