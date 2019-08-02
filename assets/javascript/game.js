@@ -17,6 +17,8 @@ document.onkeyup = function (event) {
     if (letters.includes(userGuess)) {
         if (!yourGuessesSoFar.includes(userGuess)) {
             yourGuessesSoFar.push(userGuess)
+            // this was an attempt at showing the already chosen letters on the screen
+            return yourGuessesSoFar;
             if (userGuess === computerGuess) {
                 console.log("you win!!!")
                 alert("You're a winner!")
@@ -24,6 +26,7 @@ document.onkeyup = function (event) {
                 randomGuess()
             } else {
                 console.log("wrong answer")
+                // This was an attempt at counting down the guesses left
                 guessesLeft--
                 if (guessesLeft === 0) {
                     console.log("you lose!!")
