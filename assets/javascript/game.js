@@ -13,20 +13,33 @@ document.onkeyup = function (event) {
     var userGuess = event.key
     userGuess.toLowerCase();
     console.log(userGuess);
-    
+    // Attempt at reducing the number of guesses left
+    // guessesLeft--;
+
+
+
     if (letters.includes(userGuess)) {
         if (!yourGuessesSoFar.includes(userGuess)) {
             yourGuessesSoFar.push(userGuess)
-            // this was an attempt at showing the already chosen letters on the screen
+            // Tried this first
+            // guessesLeft++            
+            //Tried this second
+            // if (userGuess != computerGuess){
+            //     guessesLeft++;
+            // }            
+            // attempt at adding guessed letters to the yourGuessesSoFar ID
+            // yourGuessesSoFar++
             if (userGuess === computerGuess) {
                 console.log("you win!!!")
                 alert("You're a winner!")
                 wins++
                 randomGuess()
+
             } else {
                 console.log("wrong answer")
-                // This was an attempt at counting down the guesses left
-                guessesLeft--
+                
+
+
                 if (guessesLeft === 0) {
                     console.log("you lose!!")
                     alert("You're a loser!")
