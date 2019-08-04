@@ -7,14 +7,13 @@ var guessesLeft = 0;
 var yourGuessesSoFar = [];
 var computerGuess = ""
 // Function resetting the computer guess 
-function randomGuess() {
-    computerGuess = letters[Math.floor(Math.random() * letters.length)];
-    console.log("Computer guessed " + computerGuess);
+function randomGuess() {    
     guessesLeft = 9;
     yourGuessesSoFar = [];
+    computerGuess = letters[Math.floor(Math.random() * letters.length)];
+    console.log("Computer guessed " + computerGuess);
 }
 
-// Function starting the game
 randomGuess();
 // below is the code for the user guess 
 
